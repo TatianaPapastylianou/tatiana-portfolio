@@ -21,8 +21,8 @@
   <title>Tatiana Papastylianou, Senior Product Designer</title>
   <meta name="description" content="Senior product designer in Nicosia, Cyprus. Interaction design for complex software. Applications reviewed personally.">
   <meta name="author" content="Tatiana Papastylianou">
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#EFE7D8">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0B1416">
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://tatianapapa.netlify.app/">
@@ -43,10 +43,12 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/favicon.ico">
 
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=boska@300,301,400,401,500,501,700,701&f[]=supreme@400,401,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap">
 
   <script type="application/ld+json">
   {
@@ -71,24 +73,31 @@
 
   <style>
     :root {
-      --paper: #EFE7D8;
-      --paper-deep: #E4DAC6;
-      --paper-shadow: #D9CEB6;
-      --ink: #141210;
-      --ink-soft: #342F28;
-      --muted: #7A7266;
-      --muted-soft: #A8A093;
-      --accent: #A8432A;
-      --accent-deep: #7C3220;
-      --rule: rgba(20, 18, 16, 0.22);
-      --rule-soft: rgba(20, 18, 16, 0.10);
+      --paper: #0B1416;
+      --paper-deep: #122024;
+      --paper-shadow: #060C0E;
+      --ink: #EDE4D0;
+      --ink-soft: #CFC6AE;
+      --muted: #8C8570;
+      --muted-soft: #6A6457;
+      --accent: #E3A80D;
+      --accent-deep: #F4C547;
+      --oxblood: #9E2F22;
+      --rule: rgba(237, 228, 208, 0.22);
+      --rule-soft: rgba(237, 228, 208, 0.10);
 
-      --serif: "Fraunces", "Times New Roman", Georgia, serif;
-      --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --serif: "Boska", "Playfair Display", "Times New Roman", Georgia, serif;
+      --sans: "Supreme", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --mono: "Fragment Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
       --gutter: clamp(1.25rem, 4vw, 2.75rem);
       --section: clamp(5.5rem, 11vw, 10rem);
+
+      --ease-out: cubic-bezier(0.2, 0.75, 0.2, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
+    html { color-scheme: dark; }
 
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
@@ -105,12 +114,11 @@
     body {
       background: var(--paper);
       color: var(--ink);
-      font-family: var(--serif);
-      font-size: 1.125rem;
+      font-family: var(--sans);
+      font-size: 1.05rem;
       line-height: 1.55;
       font-weight: 400;
-      font-variation-settings: "opsz" 14, "SOFT" 0, "WONK" 0;
-      font-feature-settings: "onum" 1, "ss01" 1;
+      font-feature-settings: "ss01" 1, "ss02" 1;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -118,17 +126,36 @@
       overflow-x: hidden;
     }
 
-    /* Grain texture overlay. Inline SVG, tiled, ~6 percent opacity. */
+    /* Grain + saffron aurora — atmospheric, not decorative */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 1;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.07  0 0 0 0 0.06  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.93  0 0 0 0 0.89  0 0 0 0 0.81  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
       background-size: 180px 180px;
-      opacity: 0.12;
-      mix-blend-mode: multiply;
+      opacity: 0.08;
+      mix-blend-mode: screen;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -20vh -20vw auto auto;
+      width: 70vw;
+      height: 70vh;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(ellipse at top right, rgba(227, 168, 13, 0.18), rgba(227, 168, 13, 0) 60%);
+      filter: blur(40px);
+      opacity: 0.9;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      body::after { animation: aurora 16s var(--ease-out) infinite alternate; }
+    }
+    @keyframes aurora {
+      from { transform: translate3d(0, 0, 0) scale(1); opacity: 0.9; }
+      to   { transform: translate3d(-4vw, 3vh, 0) scale(1.08); opacity: 0.65; }
     }
 
     main, header, footer { position: relative; z-index: 2; }
@@ -241,14 +268,16 @@
     .hero-main { align-self: end; display: grid; gap: clamp(2rem, 4vw, 3rem); }
     .hero-name {
       font-family: var(--serif);
-      font-weight: 400;
+      font-weight: 500;
       font-variation-settings: "opsz" 144, "SOFT" 40;
       font-size: clamp(4rem, 16vw, 14rem);
       line-height: 0.86;
       letter-spacing: -0.035em;
       margin: 0;
       color: var(--ink);
+      position: relative;
     }
+    .hero-name .given, .hero-name .sur { display: block; position: relative; }
     .hero-name span { display: block; }
     .hero-name .sur {
       font-style: italic;
@@ -338,7 +367,7 @@
     }
     .section-head h2 {
       font-family: var(--serif);
-      font-weight: 400;
+      font-weight: 500;
       font-variation-settings: "opsz" 144, "SOFT" 40;
       font-size: clamp(2.5rem, 5.5vw, 4.25rem);
       line-height: 0.96;
@@ -389,7 +418,7 @@
     .case-head .eyebrow { color: var(--muted); }
     .case-title {
       font-family: var(--serif);
-      font-weight: 400;
+      font-weight: 500;
       font-variation-settings: "opsz" 144, "SOFT" 40;
       font-size: clamp(2.75rem, 7vw, 5.5rem);
       line-height: 0.92;
@@ -554,7 +583,7 @@
     .apply-head .eyebrow { color: var(--accent); }
     .apply h2 {
       font-family: var(--serif);
-      font-weight: 400;
+      font-weight: 500;
       font-variation-settings: "opsz" 144, "SOFT" 40;
       font-size: clamp(2.75rem, 6vw, 4.5rem);
       line-height: 0.94;
@@ -783,7 +812,7 @@
     }
     .step-question {
       font-family: var(--serif);
-      font-weight: 400;
+      font-weight: 500;
       font-variation-settings: "opsz" 144, "SOFT" 40;
       font-size: clamp(1.85rem, 3.6vw, 2.6rem);
       line-height: 1.12;
@@ -843,7 +872,7 @@
     .success-line {
       font-family: var(--serif);
       font-variation-settings: "opsz" 144, "SOFT" 40;
-      font-weight: 400;
+      font-weight: 500;
       font-size: clamp(2rem, 4vw, 2.85rem);
       line-height: 1.1;
       letter-spacing: -0.025em;
@@ -1047,7 +1076,7 @@
     }
     .case-dialog-title {
       font-family: var(--serif);
-      font-weight: 400;
+      font-weight: 500;
       font-variation-settings: "opsz" 144, "SOFT" 40;
       font-size: clamp(2rem, 6vw, 3rem);
       line-height: 0.95;
@@ -1133,6 +1162,131 @@
       to   { transform: translateY(0); }
     }
 
+    /* Custom cursor — difference-blend, hidden on touch */
+    .cursor-dot, .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: difference;
+      will-change: transform;
+      opacity: 0;
+      transition: opacity 240ms ease;
+    }
+    .cursor-dot {
+      width: 6px; height: 6px;
+      background: var(--ink);
+      border-radius: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    .cursor-ring {
+      width: 38px; height: 38px;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      transition: opacity 240ms ease, width 280ms var(--ease-spring), height 280ms var(--ease-spring), border-color 240ms ease;
+    }
+    .cursor-ready .cursor-dot, .cursor-ready .cursor-ring { opacity: 1; }
+    .cursor-ring.is-hover {
+      width: 72px; height: 72px;
+      border-color: var(--accent);
+    }
+    @media (hover: none), (pointer: coarse) {
+      .cursor-dot, .cursor-ring { display: none; }
+    }
+    body.cursor-ready { cursor: none; }
+    body.cursor-ready a, body.cursor-ready button, body.cursor-ready [role="button"],
+    body.cursor-ready input, body.cursor-ready textarea, body.cursor-ready label { cursor: none; }
+
+    /* 3D extruded mark in hero — orbiting ampersand */
+    .mark-3d {
+      position: absolute;
+      right: var(--gutter);
+      top: 38%;
+      width: clamp(10rem, 20vw, 18rem);
+      height: clamp(10rem, 20vw, 18rem);
+      perspective: 1400px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-sigil, .hero-main { position: relative; z-index: 2; }
+    .mark-3d-inner {
+      position: absolute;
+      inset: 0;
+      transform-style: preserve-3d;
+      animation: markSpin 22s linear infinite;
+    }
+    .mark-3d-slice {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-variation-settings: "opsz" 144, "SOFT" 100;
+      font-weight: 300;
+      font-size: clamp(7rem, 14vw, 13rem);
+      line-height: 1;
+      color: var(--accent);
+      transform: translateZ(var(--z));
+      opacity: var(--o);
+      user-select: none;
+    }
+    .mark-3d-slice.top {
+      color: var(--accent-deep);
+      -webkit-text-stroke: 0.5px rgba(244, 197, 71, 0.6);
+    }
+    @keyframes markSpin {
+      from { transform: rotateY(0deg) rotateX(-12deg); }
+      to   { transform: rotateY(360deg) rotateX(-12deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mark-3d-inner { animation: none; transform: rotateY(-18deg) rotateX(-8deg); }
+    }
+    @media (max-width: 47.999rem) {
+      .mark-3d {
+        position: relative;
+        right: auto; top: auto;
+        width: 10rem; height: 10rem;
+        margin: 0 0 1.5rem auto;
+      }
+    }
+
+    /* Scroll reveals */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(1.75rem);
+      transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out);
+    }
+    [data-reveal].is-in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-reveal="side"] { transform: translateX(-1.25rem); }
+    [data-reveal="side"].is-in-view { transform: translateX(0); }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal], [data-reveal="side"] { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Magnetic wrapper — keeps inline-block flow */
+    .magnetic {
+      display: inline-block;
+      transition: transform 220ms var(--ease-spring);
+      will-change: transform;
+    }
+
+    /* Case hover — subtle 3D tilt via JS inline transform */
+    [data-tilt] {
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    /* Accent glow on numeral when case is hovered */
+    .case:hover .case-numeral {
+      text-shadow: 0 0 80px rgba(244, 197, 71, 0.35);
+      transition: text-shadow 420ms ease;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
     }
@@ -1145,6 +1299,9 @@
   </style>
 </head>
 <body>
+  <span class="cursor-dot" aria-hidden="true"></span>
+  <span class="cursor-ring" aria-hidden="true"></span>
+
   <a class="skip" href="#main">skip to content</a>
 
   <header class="masthead" aria-label="site header">
@@ -1160,6 +1317,7 @@
   <main id="main">
     <section class="hero wrap" aria-labelledby="name">
       <p class="hero-sigil">issue <em>01</em>.</p>
+      <div class="mark-3d" aria-hidden="true" data-mark-3d></div>
       <div class="hero-main">
         <h1 id="name" class="hero-name">
           <span class="given">tatiana</span>
@@ -1185,11 +1343,11 @@
 
     <section class="intro" aria-labelledby="intro-heading">
       <div class="wrap intro-grid">
-        <div class="intro-label-wrap">
+        <div class="intro-label-wrap" data-reveal="side">
           <p class="eyebrow" id="intro-heading">introduction</p>
           <span class="running-num" aria-hidden="true">§</span>
         </div>
-        <div class="intro-body">
+        <div class="intro-body" data-reveal>
           <p>I work with product teams on complicated software. The interface is usually the part nobody has had time for.</p>
           <p>Most of my hours go into interaction design. Systems and accessibility come with the same job, because doing them last is how they fall apart.</p>
           <p>The best projects end with people forgetting the interface is there.</p>
@@ -1199,12 +1357,12 @@
 
     <section class="work" aria-labelledby="work-heading">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <p class="eyebrow">selected work</p>
           <h2 id="work-heading">3 engagements, <em>in brief</em>.</h2>
         </div>
 
-        <article class="case" aria-labelledby="case-one">
+        <article class="case" aria-labelledby="case-one" data-reveal data-tilt>
           <p class="case-numeral" aria-hidden="true">1<span class="period">.</span></p>
           <div>
             <header class="case-head">
@@ -1284,7 +1442,7 @@
           </div>
         </article>
 
-        <article class="case" aria-labelledby="case-two">
+        <article class="case" aria-labelledby="case-two" data-reveal data-tilt>
           <p class="case-numeral" aria-hidden="true">2<span class="period">.</span></p>
           <div>
             <header class="case-head">
@@ -1354,7 +1512,7 @@
           </div>
         </article>
 
-        <article class="case" aria-labelledby="case-three">
+        <article class="case" aria-labelledby="case-three" data-reveal data-tilt>
           <p class="case-numeral" aria-hidden="true">3<span class="period">.</span></p>
           <div>
             <header class="case-head">
@@ -1426,11 +1584,11 @@
 
     <section class="principles" aria-labelledby="principles-heading">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <p class="eyebrow">principles</p>
           <h2 id="principles-heading">what the work <em>rests on</em>.</h2>
         </div>
-        <div class="principles-body">
+        <div class="principles-body" data-reveal>
           <span class="label" aria-hidden="true">4 notes</span>
           <p class="principles-stanza">
             <span class="break">The interface is the product<span class="dot">.</span></span>
@@ -1444,7 +1602,7 @@
 
     <section class="apply" id="apply" aria-labelledby="apply-heading">
       <div class="wrap-narrow">
-        <div class="apply-head">
+        <div class="apply-head" data-reveal>
           <p class="eyebrow">by invitation</p>
           <h2 id="apply-heading">apply <em>to work</em> together.</h2>
           <p class="apply-sub">I take 3 engagements per quarter. I read every application myself. I do not reply to all of them.</p>
@@ -1455,7 +1613,7 @@
           <!-- Initial panel: the invitation button. -->
           <div class="stage-panel stage-cta" id="applyCta">
             <p class="cta-note">A short application follows. 4 questions. I reply within 7 days if there is a fit.</p>
-            <button type="button" class="submit cta-button" id="startApply">request an invitation</button>
+            <button type="button" class="submit cta-button magnetic" id="startApply">request an invitation</button>
             <p class="cta-footnote">If I am not the right fit, I will say so.</p>
           </div>
 
@@ -1868,6 +2026,138 @@
           body: data,
           headers: { 'Accept': 'application/json' }
         }).then(reveal).catch(fail);
+      });
+    })();
+
+    /* Populate the 3D mark with stacked slices of an ampersand. */
+    (function () {
+      var host = document.querySelector('[data-mark-3d]');
+      if (!host) return;
+      var inner = document.createElement('span');
+      inner.className = 'mark-3d-inner';
+      var slices = 18;
+      for (var i = 0; i < slices; i++) {
+        var s = document.createElement('span');
+        var z = -((slices - 1) / 2) * 2 + i * 2;
+        var o = 0.22 + (i / (slices - 1)) * 0.55;
+        s.className = 'mark-3d-slice' + (i === slices - 1 ? ' top' : '');
+        s.style.setProperty('--z', z + 'px');
+        s.style.setProperty('--o', o.toFixed(2));
+        s.textContent = '&';
+        inner.appendChild(s);
+      }
+      host.appendChild(inner);
+    })();
+
+    /* Custom cursor — lerped ring, instant dot, hover detection. */
+    (function () {
+      var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!fine) return;
+      var dot = document.querySelector('.cursor-dot');
+      var ring = document.querySelector('.cursor-ring');
+      if (!dot || !ring) return;
+
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+      var rx = mx, ry = my;
+      var ready = false;
+
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        if (!ready) {
+          ready = true;
+          document.body.classList.add('cursor-ready');
+        }
+        dot.style.transform = 'translate3d(' + mx + 'px, ' + my + 'px, 0) translate(-50%, -50%)';
+      }, { passive: true });
+
+      function tick() {
+        rx += (mx - rx) * 0.18;
+        ry += (my - ry) * 0.18;
+        ring.style.transform = 'translate3d(' + rx + 'px, ' + ry + 'px, 0) translate(-50%, -50%)';
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      var hoverSel = 'a, button, [role="button"], input, textarea, label, .case, .magnetic';
+      document.addEventListener('mouseover', function (e) {
+        if (e.target.closest(hoverSel)) ring.classList.add('is-hover');
+      });
+      document.addEventListener('mouseout', function (e) {
+        if (e.target.closest(hoverSel)) ring.classList.remove('is-hover');
+      });
+      document.addEventListener('mouseleave', function () {
+        document.body.classList.remove('cursor-ready');
+      });
+      document.addEventListener('mouseenter', function () {
+        if (ready) document.body.classList.add('cursor-ready');
+      });
+    })();
+
+    /* IntersectionObserver scroll reveals. */
+    (function () {
+      var targets = document.querySelectorAll('[data-reveal]');
+      if (!targets.length || !('IntersectionObserver' in window)) {
+        Array.prototype.forEach.call(targets, function (t) { t.classList.add('is-in-view'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      Array.prototype.forEach.call(targets, function (t) { io.observe(t); });
+    })();
+
+    /* Magnetic hover — pointer pulls element slightly. */
+    (function () {
+      var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!fine) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      var els = document.querySelectorAll('.magnetic');
+      Array.prototype.forEach.call(els, function (el) {
+        el.addEventListener('mousemove', function (e) {
+          var r = el.getBoundingClientRect();
+          var x = e.clientX - (r.left + r.width / 2);
+          var y = e.clientY - (r.top + r.height / 2);
+          el.style.transform = 'translate3d(' + (x * 0.22) + 'px, ' + (y * 0.28) + 'px, 0)';
+        });
+        el.addEventListener('mouseleave', function () {
+          el.style.transform = '';
+        });
+      });
+    })();
+
+    /* Case tilt — pointer-position-based rotateX/rotateY via inline transform. */
+    (function () {
+      var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!fine) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      var narrow = window.matchMedia('(max-width: 47.999rem)').matches;
+      if (narrow) return;
+      var cases = document.querySelectorAll('[data-tilt]');
+      Array.prototype.forEach.call(cases, function (c) {
+        var frame = 0;
+        c.style.transition = 'transform 420ms cubic-bezier(0.2, 0.75, 0.2, 1), opacity 900ms cubic-bezier(0.2, 0.75, 0.2, 1)';
+        c.addEventListener('mousemove', function (e) {
+          if (frame) return;
+          frame = requestAnimationFrame(function () {
+            var r = c.getBoundingClientRect();
+            var px = (e.clientX - r.left) / r.width - 0.5;
+            var py = (e.clientY - r.top) / r.height - 0.5;
+            var rx = (-py * 1.6).toFixed(2);
+            var ry = (px * 2.4).toFixed(2);
+            c.style.transform = 'perspective(1800px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+            frame = 0;
+          });
+        });
+        c.addEventListener('mouseleave', function () {
+          c.style.transform = 'perspective(1800px) rotateX(0deg) rotateY(0deg)';
+        });
       });
     })();
   </script>
