@@ -94,6 +94,14 @@
     html, body { margin: 0; padding: 0; }
     html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
+    button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    h1, h2, h3, .hero-name, .case-title, .step-question, .success-line, .intro-body, .principles-stanza {
+      text-wrap: balance;
+    }
+    h1, h2, h3, [id="intro-heading"], [id="work-heading"], [id="principles-heading"], [id="apply-heading"] {
+      scroll-margin-top: 2.5rem;
+    }
+
     body {
       background: var(--paper);
       color: var(--ink);
@@ -441,6 +449,7 @@
       line-height: 1.02;
       letter-spacing: -0.015em;
       color: var(--ink);
+      font-variant-numeric: tabular-nums oldstyle-nums;
     }
     .metric-label {
       font-size: 0.72rem;
@@ -654,6 +663,17 @@
       color: var(--muted);
       font-family: var(--mono);
       text-transform: none;
+    }
+    .form-error {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin: 0.75rem 0 0;
+      padding: 0.8rem 1rem;
+      border-left: 2px solid var(--accent);
+      background: rgba(168, 67, 42, 0.07);
     }
 
     /* Multi-step stage */
@@ -962,7 +982,7 @@
           <span class="given">tatiana</span>
           <span class="sur">papastylianou</span>
         </h1>
-        <p class="hero-line">interaction design for considered software.</p>
+        <p class="hero-line">design for the software people cannot opt out of.</p>
         <dl class="hero-meta">
           <div>
             <dt>role</dt>
@@ -987,9 +1007,9 @@
           <span class="running-num" aria-hidden="true">§</span>
         </div>
         <div class="intro-body">
-          <p>I work with product teams building complex software.</p>
-          <p>The focus is interaction design, with systems and accessibility built in rather than added later.</p>
-          <p>When the work goes well, it makes difficult things feel ordinary.</p>
+          <p>I work with product teams on complicated software. The interface is usually the part nobody has had time for.</p>
+          <p>Most of my hours go into interaction design. Systems and accessibility come with the same job, because doing them last is how they fall apart.</p>
+          <p>The best projects end with people forgetting the interface is there.</p>
         </div>
       </div>
     </section>
@@ -1048,7 +1068,7 @@
 
             <div class="decision">
               <span class="decision-label">1 decision</span>
-              <p class="decision-quote">We refused to document anything that had fewer than 3 uses in production. The library stayed small on purpose. Teams stopped treating it as a proposal and started treating it as a floor.</p>
+              <p class="decision-quote">We refused to document anything that had fewer than 3 uses in production. The library stayed small on purpose. Teams started treating it as a floor instead of arguing about it.</p>
             </div>
           </div>
         </article>
@@ -1075,8 +1095,8 @@
 
               <div class="case-block approach">
                 <h4>the approach</h4>
-                <p>We redesigned the drag-and-drop pattern as click-to-place. Tap once to pick up a token. Tap again to place it. The motion nobody asked for was simply removed.</p>
-                <p>The alternative ran alongside the original for 6 weeks with a matched cohort. Then we rebuilt contrast, focus order, and screen reader labels from scratch.</p>
+                <p>We redesigned drag-and-drop as click-to-place. Tap to pick up a token. Tap to place it. We took the motion out entirely.</p>
+                <p>The new pattern ran alongside the original for 6 weeks with a matched cohort. Then we rebuilt contrast, focus order, and screen reader labels from scratch.</p>
               </div>
 
               <div class="case-block outcome">
@@ -1100,7 +1120,7 @@
 
             <div class="decision">
               <span class="decision-label">1 decision</span>
-              <p class="decision-quote">Click-to-place became the default, not the accessibility alternative. It tested faster for everyone. Drag stayed available, but it stopped being the primary path. The right pattern for the constrained user turned out to be the right pattern for the whole product.</p>
+              <p class="decision-quote">Click-to-place became the default. Drag stayed available as an option. What we built for the constrained user turned out to be faster for everyone.</p>
             </div>
           </div>
         </article>
@@ -1121,14 +1141,14 @@
             <div class="case-body">
               <div class="case-block problem">
                 <h4>the problem</h4>
-                <p>Customer service chat handled a growing share of pre-purchase questions. The obvious answer was to hire more agents. The real answer was not.</p>
-                <p>A pure language model could write confident responses when it was wrong, which is worse than silence in luxury retail. Brand voice drifted by the 2nd paragraph.</p>
+                <p>Customer service chat was handling a growing share of pre-purchase questions. Hiring more agents was the obvious response. It would also have been the wrong one.</p>
+                <p>A language model on its own wrote confident responses when it was wrong, which is worse than silence in luxury retail. Brand voice drifted by the 2nd paragraph.</p>
               </div>
 
               <div class="case-block approach">
                 <h4>the approach</h4>
-                <p>We built a system where the model proposed responses and a human agent approved, edited, or rejected them before anything reached the customer. The approval interface became the central design problem.</p>
-                <p>Agents needed to work at the speed of chat, not the speed of editing. The model's confidence became a visual weight rather than a number. Agents read it within 2 days. A 12-week multi-armed bandit test ran across 4 response styles.</p>
+                <p>We built a system where the model proposed a response and a human agent approved, edited, or rejected it before the customer saw anything. The approval interface was where most of the design work went.</p>
+                <p>Agents were working at chat speed, not editing speed. The model's confidence had to be readable at a glance, so we turned the number into a visual weight. Agents were reading it accurately within 2 days. A 12-week multi-armed bandit test ran across 4 response styles.</p>
               </div>
 
               <div class="case-block outcome">
@@ -1152,7 +1172,7 @@
 
             <div class="decision">
               <span class="decision-label">1 decision</span>
-              <p class="decision-quote">Rejected responses routed back as training signal without adding review load for the agent. Quality improved in the background while the team kept its attention on the customer. The approval gate was the feature, not the bottleneck.</p>
+              <p class="decision-quote">Rejected responses fed back into the model as training signal, so the agent never had to do extra work for it. Quality kept improving in the background, and the team kept its attention on the customer in front of it.</p>
             </div>
           </div>
         </article>
@@ -1169,9 +1189,9 @@
           <span class="label" aria-hidden="true">4 notes</span>
           <p class="principles-stanza">
             <span class="break">The interface is the product<span class="dot">.</span></span>
-            <span class="break">Restraint <em>scales</em><span class="dot">.</span> Features do not<span class="dot">.</span></span>
-            <span class="break">Accessibility is the baseline<span class="dot">,</span> not a phase<span class="dot">.</span></span>
-            <span class="break">Measure what ships<span class="dot">.</span> Then ship <em>less</em><span class="dot">.</span></span>
+            <span class="break">I <em>remove</em> before I add<span class="dot">.</span></span>
+            <span class="break">Accessibility belongs in the first sketch<span class="dot">.</span></span>
+            <span class="break">If I measured it<span class="dot">,</span> I probably shipped <em>too much</em> of it<span class="dot">.</span></span>
           </p>
         </div>
       </div>
@@ -1182,16 +1202,16 @@
         <div class="apply-head">
           <p class="eyebrow">by invitation</p>
           <h2 id="apply-heading">apply <em>to work</em> together.</h2>
-          <p class="apply-sub">3 engagements per quarter. Applications reviewed personally. Not all receive a response.</p>
+          <p class="apply-sub">I take 3 engagements per quarter. I read every application myself. I do not reply to all of them.</p>
         </div>
 
         <div class="apply-stage" id="applyStage">
 
           <!-- Initial panel: the invitation button. -->
           <div class="stage-panel stage-cta" id="applyCta">
-            <p class="cta-note">A short application follows. 4 questions. Replies within 7 days.</p>
+            <p class="cta-note">A short application follows. 4 questions. I reply within 7 days if there is a fit.</p>
             <button type="button" class="submit cta-button" id="startApply">request an invitation</button>
-            <p class="cta-footnote">You will be added to the short list for consideration. Places are limited.</p>
+            <p class="cta-footnote">If I am not the right fit, I will say so.</p>
           </div>
 
           <!--
@@ -1243,9 +1263,10 @@
                     name="name"
                     type="text"
                     autocomplete="name"
+                    spellcheck="false"
                     required
                     aria-required="true"
-                    placeholder="first and last"
+                    placeholder="first and last…"
                   >
                 </div>
                 <div class="field">
@@ -1255,6 +1276,8 @@
                     name="email"
                     type="email"
                     autocomplete="email"
+                    spellcheck="false"
+                    inputmode="email"
                     required
                     aria-required="true"
                     placeholder="name@company.com"
@@ -1280,7 +1303,7 @@
                   rows="6"
                   required
                   aria-required="true"
-                  placeholder="the specific problem, not the project label."
+                  placeholder="the specific problem, not the project label…"
                 ></textarea>
               </div>
               <div class="step-actions">
@@ -1302,7 +1325,7 @@
                   rows="6"
                   required
                   aria-required="true"
-                  placeholder="what worked, what did not, and what you learned."
+                  placeholder="what you tried and what it taught you…"
                 ></textarea>
               </div>
               <div class="step-actions">
@@ -1314,7 +1337,7 @@
             <fieldset class="step" data-step="4" hidden>
               <legend class="step-legend">
                 <span class="step-kicker">stakes,</span>
-                <span class="step-question">what is the cost of not solving this, for your business or your users?</span>
+                <span class="step-question">what does it cost you or your users if this stays unsolved?</span>
               </legend>
               <div class="field">
                 <label for="cost" class="visually-hidden">what is the cost of not solving this?</label>
@@ -1324,14 +1347,15 @@
                   rows="6"
                   required
                   aria-required="true"
-                  placeholder="measurable if possible. honest if not."
+                  placeholder="dollars, hours, or users, if you have numbers…"
                 ></textarea>
               </div>
               <div class="step-actions">
                 <button type="button" class="ghost" data-back>back</button>
                 <button type="submit" class="submit">submit application</button>
               </div>
-              <p class="fine-print">applications reviewed within 7 days.</p>
+              <p class="form-error" id="formError" role="alert" hidden>the application did not send. please try again, or email directly.</p>
+              <p class="fine-print">I reply within 7 days if there is a fit.</p>
             </fieldset>
           </form>
 
@@ -1344,8 +1368,8 @@
             hidden
           >
             <p class="success-eyebrow">received</p>
-            <p class="success-line">Thank you. Your application has been received.</p>
-            <p class="success-note">You will hear back within 7 days if there is a fit.</p>
+            <p class="success-line">Thank you. I have your application.</p>
+            <p class="success-note">If there is a fit, I will email within 7 days.</p>
           </div>
         </div>
       </div>
@@ -1394,7 +1418,8 @@
         if (stepNowEl) stepNowEl.textContent = String(index + 1);
         var active = steps[index];
         var firstField = active && active.querySelector('input, textarea');
-        if (firstField) {
+        var isDesktop = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (firstField && isDesktop) {
           window.setTimeout(function () { firstField.focus({ preventScroll: true }); }, 60);
         }
       }
@@ -1473,7 +1498,7 @@
         var originalText = button ? button.textContent : '';
         if (button) {
           button.disabled = true;
-          button.textContent = 'sending';
+          button.textContent = 'sending…';
         }
 
         var data = new FormData(form);
@@ -1491,7 +1516,11 @@
             button.disabled = false;
             button.textContent = originalText;
           }
-          alert('the application did not send. please try again or email directly.');
+          var errEl = document.getElementById('formError');
+          if (errEl) {
+            errEl.hidden = false;
+            errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
         }
 
         var endpoint = form.getAttribute('action') || '';
