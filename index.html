@@ -421,9 +421,9 @@
       font-family: var(--serif);
       font-weight: 500;
       font-variation-settings: "opsz" 144, "SOFT" 40;
-      font-size: clamp(2.75rem, 7vw, 5.5rem);
-      line-height: 0.92;
-      letter-spacing: -0.035em;
+      font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
       margin: 0;
       color: var(--ink);
     }
@@ -455,14 +455,41 @@
       margin: 0 0 1rem;
     }
     .case-block p {
-      font-family: var(--serif);
-      font-variation-settings: "opsz" 14, "SOFT" 20;
-      font-size: clamp(1.1rem, 1.15vw + 0.95rem, 1.3rem);
-      line-height: 1.6;
-      max-width: 58ch;
+      font-family: var(--sans);
+      font-size: clamp(1rem, 0.7vw + 0.85rem, 1.1rem);
+      line-height: 1.7;
+      letter-spacing: 0.005em;
+      max-width: 62ch;
       color: var(--ink-soft);
     }
+    .case-block p + p { margin-top: 0.85rem; }
     .case-block h4 + p { margin-top: 0; }
+
+    .case-subtitle {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      letter-spacing: 0;
+      line-height: 1.4;
+      color: var(--ink-soft);
+      margin: 0.35rem 0 0;
+      max-width: 44ch;
+    }
+    .case-subtitle strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .metrics-source {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-soft, var(--muted));
+      margin: 1.5rem 0 0;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--rule-soft);
+      max-width: 38ch;
+    }
 
     .metrics { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.75rem; }
     .metrics li {
@@ -1405,9 +1432,9 @@
           <div>
             <header class="case-head">
               <p class="eyebrow">case study</p>
-              <h3 id="case-one" class="case-title">foundation</h3>
+              <h3 id="case-one" class="case-title">Design system</h3>
+              <p class="case-subtitle"><strong>Enterprise platform</strong> · 5 products, 2 design teams, 1 library</p>
               <p class="case-meta">
-                <span>enterprise software platform, logistics and compliance</span>
                 <span>lead product designer</span>
                 <span>9 months</span>
               </p>
@@ -1466,10 +1493,11 @@
                     <span class="metric-label">faster design-to-development handoff.</span>
                   </li>
                   <li>
-                    <span class="metric-value">1,200 hours</span>
-                    <span class="metric-label">of engineering time saved in year 1.</span>
+                    <span class="metric-value">~1,200 hrs</span>
+                    <span class="metric-label">estimated engineering time saved in year 1.</span>
                   </li>
                 </ul>
+                <p class="metrics-source">Internal estimates · directional figures from product analytics.</p>
               </div>
             </div>
 
@@ -1485,9 +1513,9 @@
           <div>
             <header class="case-head">
               <p class="eyebrow">case study</p>
-              <h3 id="case-two" class="case-title">tread</h3>
+              <h3 id="case-two" class="case-title">Accessibility</h3>
+              <p class="case-subtitle"><strong>Akelius Languages</strong> · drag-and-drop replaced with click-to-place</p>
               <p class="case-meta">
-                <span>consumer language-learning product, several million monthly learners</span>
                 <span>lead accessibility designer</span>
                 <span>11 months</span>
               </p>
@@ -1540,6 +1568,7 @@
                     <span class="metric-label">WCAG 2.1 AA violations at the final audit.</span>
                   </li>
                 </ul>
+                <p class="metrics-source">Internal product analytics · completion measured across matched cohorts.</p>
               </div>
             </div>
 
@@ -1555,79 +1584,11 @@
           <div>
             <header class="case-head">
               <p class="eyebrow">case study</p>
-              <h3 id="case-three" class="case-title">counter</h3>
+              <h3 id="case-three" class="case-title">Property lifecycle</h3>
+              <p class="case-subtitle"><strong>Real-estate operator</strong> · 10 internal apps covering acquisition to disposition</p>
               <p class="case-meta">
-                <span>european luxury retailer, direct-to-consumer</span>
-                <span>design lead</span>
-                <span>8 months</span>
-              </p>
-            </header>
-
-            <figure class="case-mark-figure" aria-hidden="true" data-label="agent · approval">
-              <svg class="case-mark" viewBox="0 0 240 160" focusable="false">
-                <rect x="10" y="54" width="60" height="40" fill="none" stroke="currentColor" stroke-width="1"/>
-                <rect x="90" y="40" width="60" height="68" fill="var(--accent)"/>
-                <rect x="170" y="54" width="60" height="40" fill="none" stroke="currentColor" stroke-width="1"/>
-                <line x1="70" y1="74" x2="90" y2="74" stroke="currentColor" stroke-width="1"/>
-                <polygon points="90,74 86,71 86,77" fill="currentColor"/>
-                <line x1="150" y1="74" x2="170" y2="74" stroke="currentColor" stroke-width="1"/>
-                <polygon points="170,74 166,71 166,77" fill="currentColor"/>
-                <path d="M 90 108 Q 40 148 40 94" fill="none" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 3"/>
-                <polygon points="40,94 37,101 43,101" fill="var(--accent)"/>
-                <line x1="10" y1="136" x2="230" y2="136" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-              </svg>
-            </figure>
-            <button type="button" class="case-open" data-case-open>read the case</button>
-
-            <div class="case-body">
-              <div class="case-block problem">
-                <h4>the problem</h4>
-                <p>Customer service chat was handling a growing share of pre-purchase questions. Hiring more agents was the obvious response. It would also have been the wrong one.</p>
-                <p>A language model on its own wrote confident responses when it was wrong, which is worse than silence in luxury retail. Brand voice drifted by the 2nd paragraph.</p>
-              </div>
-
-              <div class="case-block approach">
-                <h4>the approach</h4>
-                <p>We built a system where the model proposed a response and a human agent approved, edited, or rejected it before the customer saw anything. The approval interface was where most of the design work went.</p>
-                <p>Agents were working at chat speed, not editing speed. The model's confidence had to be readable at a glance, so we turned the number into a visual weight. Agents were reading it accurately within 2 days. A 12-week multi-armed bandit test ran across 4 response styles.</p>
-              </div>
-
-              <div class="case-block outcome">
-                <h4>the outcome</h4>
-                <ul class="metrics">
-                  <li>
-                    <span class="metric-value">220%</span>
-                    <span class="metric-label">higher agent throughput.</span>
-                  </li>
-                  <li>
-                    <span class="metric-value">19%</span>
-                    <span class="metric-label">conversion lift on chat-initiated sessions.</span>
-                  </li>
-                  <li>
-                    <span class="metric-value">11 seconds</span>
-                    <span class="metric-label">average response time, from 2 minutes 40 seconds.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="decision">
-              <span class="decision-label">1 decision</span>
-              <p class="decision-quote">Rejected responses fed back into the model as training signal, so the agent never had to do extra work for it. Quality kept improving in the background, and the team kept its attention on the customer in front of it.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="case" aria-labelledby="case-four" data-reveal data-tilt>
-          <p class="case-numeral" aria-hidden="true">4<span class="period">.</span></p>
-          <div>
-            <header class="case-head">
-              <p class="eyebrow">case study</p>
-              <h3 id="case-four" class="case-title">estate</h3>
-              <p class="case-meta">
-                <span>european real-estate operator, 10 internal applications</span>
                 <span>senior product designer</span>
-                <span>2 years</span>
+                <span>2 years, 6 months</span>
               </p>
             </header>
 
@@ -1679,6 +1640,7 @@
                     <span class="metric-label">of screens covered by the shared pattern library.</span>
                   </li>
                 </ul>
+                <p class="metrics-source">Internal estimates · onboarding time measured against prior new-hire cohorts.</p>
               </div>
             </div>
 
@@ -1689,14 +1651,14 @@
           </div>
         </article>
 
-        <article class="case" aria-labelledby="case-five" data-reveal data-tilt>
-          <p class="case-numeral" aria-hidden="true">5<span class="period">.</span></p>
+        <article class="case" aria-labelledby="case-four" data-reveal data-tilt>
+          <p class="case-numeral" aria-hidden="true">4<span class="period">.</span></p>
           <div>
             <header class="case-head">
               <p class="eyebrow">case study</p>
-              <h3 id="case-five" class="case-title">chorus</h3>
+              <h3 id="case-four" class="case-title">Cross-platform parity</h3>
+              <p class="case-subtitle"><strong>Akelius Languages</strong> · one exercise model, three runtimes (web, iOS, Android)</p>
               <p class="case-meta">
-                <span>consumer language-learning product, web, iOS, Android</span>
                 <span>cross-platform design lead</span>
                 <span>ongoing</span>
               </p>
@@ -1752,6 +1714,7 @@
                     <span class="metric-label">exercise types shipped across all three runtimes.</span>
                   </li>
                 </ul>
+                <p class="metrics-source">Internal product analytics · retention tracked per device-switch cohort.</p>
               </div>
             </div>
 
@@ -1762,14 +1725,14 @@
           </div>
         </article>
 
-        <article class="case" aria-labelledby="case-six" data-reveal data-tilt>
-          <p class="case-numeral" aria-hidden="true">6<span class="period">.</span></p>
+        <article class="case" aria-labelledby="case-five" data-reveal data-tilt>
+          <p class="case-numeral" aria-hidden="true">5<span class="period">.</span></p>
           <div>
             <header class="case-head">
               <p class="eyebrow">case study</p>
-              <h3 id="case-six" class="case-title">proof</h3>
+              <h3 id="case-five" class="case-title">Math input on touch</h3>
+              <p class="case-subtitle"><strong>Akelius Math</strong> · tap-to-build equation input for phones and tablets</p>
               <p class="case-meta">
-                <span>consumer math-learning product, web, iOS, Android</span>
                 <span>senior product designer</span>
                 <span>9 months</span>
               </p>
@@ -1830,6 +1793,7 @@
                     <span class="metric-label">complaints about typing math in 90 days after launch.</span>
                   </li>
                 </ul>
+                <p class="metrics-source">Internal estimates · input methods tested with learners across 4 grade bands.</p>
               </div>
             </div>
 
@@ -1840,77 +1804,6 @@
           </div>
         </article>
 
-        <article class="case" aria-labelledby="case-seven" data-reveal data-tilt>
-          <p class="case-numeral" aria-hidden="true">7<span class="period">.</span></p>
-          <div>
-            <header class="case-head">
-              <p class="eyebrow">case study</p>
-              <h3 id="case-seven" class="case-title">forge</h3>
-              <p class="case-meta">
-                <span>internal authoring tool for two learner-facing products</span>
-                <span>design lead</span>
-                <span>14 months</span>
-              </p>
-            </header>
-
-            <figure class="case-mark-figure" aria-hidden="true" data-label="generator · editor + preview">
-              <svg class="case-mark" viewBox="0 0 240 160" focusable="false">
-                <rect x="12" y="22" width="216" height="116" fill="none" stroke="currentColor" stroke-width="1"/>
-                <line x1="110" y1="22" x2="110" y2="138" stroke="currentColor" stroke-width="0.75" opacity="0.45"/>
-                <g fill="none" stroke="currentColor" stroke-width="0.75">
-                  <rect x="22" y="34" width="78" height="10"/>
-                  <rect x="22" y="52" width="78" height="10"/>
-                  <rect x="22" y="70" width="78" height="10"/>
-                  <rect x="22" y="88" width="78" height="32"/>
-                </g>
-                <rect x="22" y="52" width="78" height="10" fill="var(--accent)" opacity="0.28"/>
-                <rect x="120" y="34" width="98" height="22" fill="currentColor" opacity="0.12"/>
-                <rect x="120" y="62" width="68" height="6" fill="currentColor" opacity="0.3"/>
-                <rect x="120" y="74" width="88" height="6" fill="currentColor" opacity="0.2"/>
-                <rect x="120" y="86" width="88" height="6" fill="currentColor" opacity="0.2"/>
-                <rect x="120" y="112" width="42" height="18" fill="var(--accent)"/>
-                <rect x="168" y="112" width="50" height="18" fill="none" stroke="currentColor" stroke-width="1"/>
-              </svg>
-            </figure>
-            <button type="button" class="case-open" data-case-open>read the case</button>
-
-            <div class="case-body">
-              <div class="case-block problem">
-                <h4>the problem</h4>
-                <p>Content editors were building lessons in a generic CMS and writing around the tool, not inside it. 40 minutes to author an exercise that rendered in the app for 30 seconds. The edits that mattered most — small copy changes, token swaps — felt the furthest from the learner.</p>
-              </div>
-
-              <div class="case-block approach">
-                <h4>the approach</h4>
-                <p>I designed Generator as an editor that mirrors the learner surface 1-to-1. Editors see what the learner will see while they write. Metadata sits in a parallel panel. Preview is not a separate mode; it is the writing surface.</p>
-                <p>Structured fields protect the content model. Everything else is direct manipulation on the rendered lesson.</p>
-              </div>
-
-              <div class="case-block outcome">
-                <h4>the outcome</h4>
-                <ul class="metrics">
-                  <li>
-                    <span class="metric-value">11 minutes</span>
-                    <span class="metric-label">average time to author an exercise, from 40.</span>
-                  </li>
-                  <li>
-                    <span class="metric-value">3x</span>
-                    <span class="metric-label">lesson output per editor per week.</span>
-                  </li>
-                  <li>
-                    <span class="metric-value">58% to 91%</span>
-                    <span class="metric-label">first-time-right rate on published exercises.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="decision">
-              <span class="decision-label">1 decision</span>
-              <p class="decision-quote">The preview stopped being a button and became the canvas. Editors never leave the learner's view. What feels right for the editor is what the learner gets.</p>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -2153,15 +2046,21 @@
 
       function openCase(caseEl) {
         var titleEl = caseEl.querySelector('.case-title');
+        var subtitleEl = caseEl.querySelector('.case-subtitle');
         var metaEl = caseEl.querySelector('.case-meta');
         var body = caseEl.querySelector('.case-body');
         var decision = caseEl.querySelector('.decision');
         if (!titleEl || !body) return;
 
         dTitle.textContent = titleEl.textContent.trim();
-        dMeta.textContent = metaEl
-          ? Array.prototype.map.call(metaEl.querySelectorAll('span'), function (s) { return s.textContent.trim(); }).join(' \u2009·\u2009 ')
-          : '';
+        var parts = [];
+        if (subtitleEl) parts.push(subtitleEl.textContent.trim());
+        if (metaEl) {
+          Array.prototype.forEach.call(metaEl.querySelectorAll('span'), function (s) {
+            parts.push(s.textContent.trim());
+          });
+        }
+        dMeta.textContent = parts.join(' \u2009·\u2009 ');
 
         dBody.innerHTML = '';
         dBody.appendChild(body.cloneNode(true));
