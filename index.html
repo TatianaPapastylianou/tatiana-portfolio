@@ -1,0 +1,1037 @@
+<!doctype html>
+<!--
+  =========================================================================
+  Placeholders to replace before or after launch:
+
+  1. Form endpoint. Pick ONE of these two paths:
+     a) Netlify Forms (recommended once deployed on Netlify):
+        Remove the action attribute from the form. Netlify will intercept
+        submissions because the form has data-netlify="true" and a hidden
+        form-name input. Enable Netlify Forms in site settings.
+     b) Formspree:
+        Replace "YOUR_ID_HERE" inside
+        action="https://formspree.io/f/YOUR_ID_HERE" with the real ID.
+
+  2. Favicon path: /favicon.ico
+  3. Open Graph image path: /og-image.jpg
+  4. LinkedIn URL in the JSON-LD sameAs array:
+        https://www.linkedin.com/in/YOUR_LINKEDIN_HERE
+  5. Final site URL in the canonical tag, og:url, twitter URL,
+     and JSON-LD url field: https://tatianapapa.netlify.app
+  =========================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tatiana Papastylianou, Senior Product Designer</title>
+  <meta name="description" content="Senior product designer in Nicosia, Cyprus. Interaction design for complex software. Applications reviewed personally.">
+  <meta name="author" content="Tatiana Papastylianou">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F5F1EA">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://tatianapapa.netlify.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tatiana Papastylianou">
+  <meta property="og:title" content="Tatiana Papastylianou, Senior Product Designer">
+  <meta property="og:description" content="Interaction design for complex software. Three engagements per quarter, applications reviewed personally.">
+  <meta property="og:image" content="https://tatianapapa.netlify.app/og-image.jpg">
+  <meta property="og:url" content="https://tatianapapa.netlify.app/">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tatiana Papastylianou, Senior Product Designer">
+  <meta name="twitter:description" content="Interaction design for complex software. Applications reviewed personally.">
+  <meta name="twitter:image" content="https://tatianapapa.netlify.app/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tatiana Papastylianou",
+    "jobTitle": "Senior Product Designer",
+    "description": "Senior product designer. Interaction design, design systems, and accessibility for complex software.",
+    "url": "https://tatianapapa.netlify.app/",
+    "image": "https://tatianapapa.netlify.app/og-image.jpg",
+    "email": "mailto:tatiana.papastylianou@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nicosia",
+      "addressCountry": "CY"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/YOUR_LINKEDIN_HERE"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF8F5;
+      --bg-deep: #F2ECE1;
+      --ink: #1A1A1A;
+      --ink-soft: #3A3633;
+      --muted: #74706A;
+      --muted-soft: #9A958D;
+      --accent: #A0432A;
+      --rule: rgba(26, 26, 26, 0.14);
+      --rule-soft: rgba(26, 26, 26, 0.08);
+      --serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --gutter: clamp(1.25rem, 4vw, 2.5rem);
+      --section: clamp(5rem, 11vw, 9rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.05em;
+      transition: border-color 180ms ease, color 180ms ease;
+    }
+    a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+
+    p { margin: 0 0 1.1em; }
+    p:last-child { margin-bottom: 0; }
+
+    ::selection { background: var(--ink); color: var(--bg); }
+
+    .wrap { max-width: 78rem; margin: 0 auto; padding: 0 var(--gutter); }
+    .wrap-narrow { max-width: 56rem; margin: 0 auto; padding: 0 var(--gutter); }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0);
+      white-space: nowrap; border: 0;
+    }
+
+    .skip {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--ink); color: var(--bg);
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      border-bottom: 0;
+    }
+    .skip:focus { left: 1rem; top: 1rem; z-index: 100; }
+
+    /* Masthead */
+    .masthead {
+      padding: 1.75rem 0 0;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .masthead-inner { display: flex; justify-content: space-between; align-items: baseline; }
+
+    /* Hero */
+    .hero {
+      padding: clamp(4rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 clamp(3rem, 8vw, 5rem);
+      display: flex;
+      gap: 0.9em;
+      align-items: center;
+    }
+    .hero-label::before {
+      content: "";
+      width: 2.25rem;
+      height: 1px;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(3.5rem, 13vw, 10rem);
+      line-height: 0.92;
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+    .hero-name span { display: block; }
+    .hero-line {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      line-height: 1.35;
+      margin: clamp(2.25rem, 5vw, 3.25rem) 0 0;
+      max-width: 32ch;
+      color: var(--ink-soft);
+    }
+    .hero-meta {
+      margin: clamp(3rem, 7vw, 5rem) 0 0;
+      padding: 1.25rem 0 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem 3rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-meta dt { font-size: 0.65rem; color: var(--muted-soft); margin-bottom: 0.4rem; }
+    .hero-meta dd { margin: 0; color: var(--ink); letter-spacing: 0.15em; }
+
+    /* Intro */
+    .intro {
+      padding: var(--section) 0;
+      border-top: 1px solid var(--rule);
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .intro-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0;
+    }
+    .intro-body {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      line-height: 1.35;
+      font-weight: 400;
+      max-width: 28ch;
+      color: var(--ink);
+    }
+    .intro-body p { margin: 0 0 1em; }
+    .intro-body p:last-child { margin-bottom: 0; }
+
+    /* Section framing */
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+    .section-head h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0;
+    }
+
+    /* Case studies */
+    .work { padding: var(--section) 0 0; border-top: 1px solid var(--rule); }
+    .case {
+      padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 8vw, 6rem);
+      border-top: 1px solid var(--rule);
+    }
+    .case:first-of-type { border-top: 0; padding-top: 0; }
+
+    .case-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .case-number {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.9rem;
+    }
+    .case-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+    .case-meta {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .case-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 4vw, 3rem);
+    }
+    .case-block h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin: 0 0 0.85rem;
+    }
+    .case-block p {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      max-width: 60ch;
+    }
+    .metrics {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .metrics li {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      padding: 1rem 0 0;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .metrics li:first-child { border-top: 0; padding-top: 0; }
+    .metric-value {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    .metric-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 40ch;
+    }
+    .decision {
+      margin-top: clamp(2rem, 4vw, 3rem);
+      padding: clamp(1.75rem, 3vw, 2.5rem) 0 0;
+      border-top: 1px solid var(--rule);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      line-height: 1.45;
+      max-width: 48ch;
+      color: var(--ink-soft);
+    }
+    .decision-label {
+      display: block;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* Principles */
+    .principles { padding: var(--section) 0; border-top: 1px solid var(--rule); }
+    .principles-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .principles-list li {
+      padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.5rem;
+      align-items: baseline;
+    }
+    .principles-list li:last-child { border-bottom: 1px solid var(--rule); }
+    .principle-num {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .principle-text {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    /* Apply form */
+    .apply { padding: var(--section) 0; border-top: 1px solid var(--rule); background: var(--bg-deep); }
+    .apply-head { max-width: 48rem; margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+    .apply h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin: 1rem 0 1.75rem;
+    }
+    .apply-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.125rem, 2vw, 1.4rem);
+      line-height: 1.5;
+      max-width: 38ch;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    form.apply-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      max-width: 52rem;
+    }
+    .field { display: grid; gap: 0.6rem; }
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+    .field label {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .field .req { color: var(--accent); margin-left: 0.25em; }
+    .field input, .field textarea {
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      color: var(--ink);
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--ink);
+      padding: 0.65rem 0;
+      border-radius: 0;
+      width: 100%;
+      resize: vertical;
+      transition: border-color 180ms ease;
+    }
+    .field textarea {
+      min-height: 6.5rem;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.5;
+      padding: 0.4rem 0 0.8rem;
+    }
+    .field input::placeholder, .field textarea::placeholder {
+      color: var(--muted-soft);
+      font-style: italic;
+    }
+    .field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--accent); }
+    .field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .submit-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+      align-items: flex-start;
+    }
+    button.submit {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 1.1rem 2.5rem;
+      background: var(--ink);
+      color: var(--bg);
+      border: 1px solid var(--ink);
+      cursor: pointer;
+      transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+      border-radius: 0;
+    }
+    button.submit:hover { background: var(--accent); border-color: var(--accent); }
+    button.submit:disabled { opacity: 0.55; cursor: wait; }
+    .fine-print {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    .apply-success {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.35;
+      color: var(--ink);
+      max-width: 36ch;
+      padding: clamp(2rem, 4vw, 3rem) 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      margin: 0;
+    }
+    .apply-success::before {
+      content: "";
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: clamp(3rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem);
+      border-top: 1px solid var(--rule);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .foot {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      justify-content: space-between;
+    }
+    .foot > * { display: flex; flex-direction: column; gap: 0.4rem; }
+    .foot-label { font-size: 0.65rem; color: var(--muted-soft); }
+    .foot-value {
+      color: var(--ink);
+      letter-spacing: 0.14em;
+      text-transform: none;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+    .foot a.foot-value { border-bottom: 0; }
+    .foot a.foot-value:hover { color: var(--accent); }
+
+    /* Tablet and up */
+    @media (min-width: 48rem) {
+      .intro-grid { grid-template-columns: 1fr 2fr; gap: 4rem; }
+      .case-body { grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 5vw, 4.5rem); }
+      .field-row { grid-template-columns: 1fr 1fr; }
+      .principles-list li { grid-template-columns: 4rem 1fr; }
+      .foot { flex-direction: row; align-items: flex-end; gap: 3rem; }
+      .hero-meta { gap: 3rem 5rem; }
+      .submit-row { flex-direction: row; align-items: center; gap: 2rem; }
+      .case-meta { flex-direction: row; flex-wrap: wrap; gap: 0.6rem 2rem; }
+    }
+
+    /* Desktop */
+    @media (min-width: 64rem) {
+      .case-head { grid-template-columns: 3fr 2fr; align-items: end; gap: 3rem; }
+      .case-body { grid-template-columns: 1fr 1fr 1fr; }
+      .hero { min-height: 92vh; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    }
+
+    @media print {
+      .apply, .masthead { display: none; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">skip to content</a>
+
+  <header class="masthead" aria-label="site header">
+    <div class="wrap masthead-inner">
+      <span>portfolio</span>
+      <span>application only</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="name">
+      <p class="hero-label"><span>selected work and application</span></p>
+      <h1 id="name" class="hero-name">
+        <span>tatiana</span>
+        <span>papastylianou</span>
+      </h1>
+      <p class="hero-line">interaction design for considered software.</p>
+      <dl class="hero-meta">
+        <div>
+          <dt>role</dt>
+          <dd>senior product designer</dd>
+        </div>
+        <div>
+          <dt>location</dt>
+          <dd>nicosia, cyprus</dd>
+        </div>
+        <div>
+          <dt>availability</dt>
+          <dd>three engagements per quarter</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="intro" aria-labelledby="intro-heading">
+      <div class="wrap intro-grid">
+        <p class="intro-eyebrow" id="intro-heading">introduction</p>
+        <div class="intro-body">
+          <p>I work with product teams building complex software.</p>
+          <p>The focus is interaction design, with systems and accessibility built in rather than added later.</p>
+          <p>When the work goes well, it makes difficult things feel ordinary.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" aria-labelledby="work-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">selected work</p>
+          <h2 id="work-heading">three engagements, in brief.</h2>
+        </div>
+
+        <article class="case" aria-labelledby="case-one">
+          <header class="case-head">
+            <div class="case-title-wrap">
+              <p class="case-number">case one</p>
+              <h3 id="case-one" class="case-title">foundation</h3>
+            </div>
+            <div class="case-meta-wrap">
+              <p class="case-meta">
+                <span>enterprise software platform, logistics and compliance</span>
+                <span>lead product designer</span>
+                <span>nine months</span>
+              </p>
+            </div>
+          </header>
+
+          <div class="case-body">
+            <div class="case-block problem">
+              <h4>the problem</h4>
+              <p>Five product surfaces had drifted apart over six years. Forty-seven button variants across the platform. Two design teams, no shared governance, and a component library that nobody trusted.</p>
+              <p>Design debt was showing up as engineering debt. Every new feature needed a custom control.</p>
+            </div>
+
+            <div class="case-block approach">
+              <h4>the approach</h4>
+              <p>We did not build a library upfront. We shipped tokens and four components, measured which teams picked them up, and expanded only what was used.</p>
+              <p>Governance stayed with a small working team rather than a review committee. One designer and one engineer from each product held write access. Office hours on Thursdays. Everything else was asynchronous.</p>
+            </div>
+
+            <div class="case-block outcome">
+              <h4>the outcome</h4>
+              <ul class="metrics">
+                <li>
+                  <span class="metric-value">ninety-two percent</span>
+                  <span class="metric-label">component adoption across three quarters.</span>
+                </li>
+                <li>
+                  <span class="metric-value">thirty-eight percent</span>
+                  <span class="metric-label">faster design-to-development handoff.</span>
+                </li>
+                <li>
+                  <span class="metric-value">one thousand two hundred hours</span>
+                  <span class="metric-label">of engineering time saved in year one.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="decision">
+            <span class="decision-label">one decision</span>
+            We refused to document anything that had fewer than three uses in production. The library stayed small on purpose. Teams stopped treating it as a proposal and started treating it as a floor.
+          </p>
+        </article>
+
+        <article class="case" aria-labelledby="case-two">
+          <header class="case-head">
+            <div class="case-title-wrap">
+              <p class="case-number">case two</p>
+              <h3 id="case-two" class="case-title">tread</h3>
+            </div>
+            <div class="case-meta-wrap">
+              <p class="case-meta">
+                <span>consumer language-learning product, several million monthly learners</span>
+                <span>lead accessibility designer</span>
+                <span>eleven months</span>
+              </p>
+            </div>
+          </header>
+
+          <div class="case-body">
+            <div class="case-block problem">
+              <h4>the problem</h4>
+              <p>Core exercises relied on drag-and-drop. Learners with motor impairments were abandoning at the fill-in-the-blank stage. Support tickets repeated the same sentence for a year.</p>
+              <p>A formal audit found thirty-one WCAG two point one AA violations across the primary learning surface, most of them on the exercises that carried the most traffic.</p>
+            </div>
+
+            <div class="case-block approach">
+              <h4>the approach</h4>
+              <p>We redesigned the drag-and-drop pattern as click-to-place. Tap once to pick up a token. Tap again to place it. The motion nobody asked for was simply removed.</p>
+              <p>The alternative ran alongside the original for six weeks with a matched cohort. Then we rebuilt contrast, focus order, and screen reader labels from scratch.</p>
+            </div>
+
+            <div class="case-block outcome">
+              <h4>the outcome</h4>
+              <ul class="metrics">
+                <li>
+                  <span class="metric-value">forty-one to seventy-eight percent</span>
+                  <span class="metric-label">exercise completion rate for learners using assistive technology.</span>
+                </li>
+                <li>
+                  <span class="metric-value">fourteen percent</span>
+                  <span class="metric-label">higher overall exercise completion across all users.</span>
+                </li>
+                <li>
+                  <span class="metric-value">zero</span>
+                  <span class="metric-label">WCAG two point one AA violations at the final audit.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="decision">
+            <span class="decision-label">one decision</span>
+            Click-to-place became the default, not the accessibility alternative. It tested faster for everyone. Drag stayed available, but it stopped being the primary path. The right pattern for the constrained user turned out to be the right pattern for the whole product.
+          </p>
+        </article>
+
+        <article class="case" aria-labelledby="case-three">
+          <header class="case-head">
+            <div class="case-title-wrap">
+              <p class="case-number">case three</p>
+              <h3 id="case-three" class="case-title">counter</h3>
+            </div>
+            <div class="case-meta-wrap">
+              <p class="case-meta">
+                <span>european luxury retailer, direct-to-consumer</span>
+                <span>design lead</span>
+                <span>eight months</span>
+              </p>
+            </div>
+          </header>
+
+          <div class="case-body">
+            <div class="case-block problem">
+              <h4>the problem</h4>
+              <p>Customer service chat handled a growing share of pre-purchase questions. The obvious answer was to hire more agents. The real answer was not.</p>
+              <p>A pure language model could write confident responses when it was wrong, which is worse than silence in luxury retail. Brand voice drifted by the second paragraph.</p>
+            </div>
+
+            <div class="case-block approach">
+              <h4>the approach</h4>
+              <p>We built a system where the model proposed responses and a human agent approved, edited, or rejected them before anything reached the customer. The approval interface became the central design problem.</p>
+              <p>Agents needed to work at the speed of chat, not the speed of editing. The model's confidence became a visual weight rather than a number. Agents read it within two days. A twelve-week multi-armed bandit test ran across four response styles.</p>
+            </div>
+
+            <div class="case-block outcome">
+              <h4>the outcome</h4>
+              <ul class="metrics">
+                <li>
+                  <span class="metric-value">two hundred and twenty percent</span>
+                  <span class="metric-label">higher agent throughput.</span>
+                </li>
+                <li>
+                  <span class="metric-value">nineteen percent</span>
+                  <span class="metric-label">conversion lift on chat-initiated sessions.</span>
+                </li>
+                <li>
+                  <span class="metric-value">eleven seconds</span>
+                  <span class="metric-label">average response time, from two minutes and forty seconds.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="decision">
+            <span class="decision-label">one decision</span>
+            Rejected responses routed back as training signal without adding review load for the agent. Quality improved in the background while the team kept its attention on the customer. The approval gate was the feature, not the bottleneck.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="principles" aria-labelledby="principles-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">principles</p>
+          <h2 id="principles-heading">what the work rests on.</h2>
+        </div>
+        <ol class="principles-list">
+          <li>
+            <span class="principle-num">one</span>
+            <span class="principle-text">The interface is the product to the person using it.</span>
+          </li>
+          <li>
+            <span class="principle-num">two</span>
+            <span class="principle-text">Restraint scales. Features do not.</span>
+          </li>
+          <li>
+            <span class="principle-num">three</span>
+            <span class="principle-text">Accessibility is the baseline, not a phase of the project.</span>
+          </li>
+          <li>
+            <span class="principle-num">four</span>
+            <span class="principle-text">Measure what ships. Then ship less of it.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="apply" id="apply" aria-labelledby="apply-heading">
+      <div class="wrap-narrow">
+        <div class="apply-head">
+          <p class="eyebrow">application</p>
+          <h2 id="apply-heading">apply to work together.</h2>
+          <p class="apply-sub">Three engagements per quarter. Applications reviewed personally. Not all receive a response.</p>
+        </div>
+
+        <!--
+          This form supports two endpoints. Pick one, not both.
+
+          Option A. Netlify Forms (recommended once deployed on Netlify):
+            Remove the action attribute entirely. Netlify intercepts the POST
+            because of data-netlify="true" and the hidden form-name input.
+            Enable Forms in Netlify site settings. No code changes needed.
+
+          Option B. Formspree:
+            Replace YOUR_ID_HERE below with the real Formspree form ID.
+        -->
+        <form
+          class="apply-form"
+          id="applyForm"
+          name="apply"
+          method="POST"
+          action="https://formspree.io/f/YOUR_ID_HERE"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="apply">
+          <p class="honeypot" aria-hidden="true">
+            <label>do not fill this field
+              <input name="bot-field" tabindex="-1" autocomplete="off">
+            </label>
+          </p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">your name<span class="req" aria-hidden="true">*</span></label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                aria-required="true"
+                placeholder="first and last"
+              >
+            </div>
+            <div class="field">
+              <label for="email">email<span class="req" aria-hidden="true">*</span></label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                aria-required="true"
+                placeholder="name@company.com"
+              >
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="problem">what is the problem you are trying to solve?<span class="req" aria-hidden="true">*</span></label>
+            <textarea
+              id="problem"
+              name="problem"
+              rows="4"
+              required
+              aria-required="true"
+              placeholder="the specific problem, not the project label."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="tried">have you tried to solve it before? if so, how?<span class="req" aria-hidden="true">*</span></label>
+            <textarea
+              id="tried"
+              name="tried"
+              rows="4"
+              required
+              aria-required="true"
+              placeholder="what worked, what did not, and what you learned."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="cost">what is the cost of not solving this, for your business or your users?<span class="req" aria-hidden="true">*</span></label>
+            <textarea
+              id="cost"
+              name="cost"
+              rows="4"
+              required
+              aria-required="true"
+              placeholder="measurable if possible. honest if not."
+            ></textarea>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="submit">submit application</button>
+            <span class="fine-print">applications reviewed within seven days.</span>
+          </div>
+        </form>
+
+        <div
+          class="apply-success"
+          id="applySuccess"
+          role="status"
+          aria-live="polite"
+          tabindex="-1"
+          hidden
+        >
+          application received. you will hear back within seven days if there is a fit.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer aria-label="site footer">
+    <div class="wrap foot">
+      <div>
+        <span class="foot-label">contact</span>
+        <a href="mailto:tatiana.papastylianou@gmail.com" class="foot-value">tatiana.papastylianou@gmail.com</a>
+      </div>
+      <div>
+        <span class="foot-label">based in</span>
+        <span class="foot-value">nicosia, cyprus</span>
+      </div>
+      <div>
+        <span class="foot-label">issue</span>
+        <span class="foot-value">two thousand twenty six</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('applyForm');
+      var success = document.getElementById('applySuccess');
+      if (!form || !success) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var button = form.querySelector('button[type="submit"]');
+        var originalText = button.textContent;
+        button.disabled = true;
+        button.textContent = 'sending';
+
+        var data = new FormData(form);
+
+        function reveal() {
+          form.hidden = true;
+          success.hidden = false;
+          success.focus();
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function fail() {
+          button.disabled = false;
+          button.textContent = originalText;
+          alert('the application did not send. please try again or email directly.');
+        }
+
+        var endpoint = form.getAttribute('action') || '';
+        var isPlaceholder = endpoint.indexOf('YOUR_ID_HERE') !== -1;
+        var isNetlify = form.hasAttribute('data-netlify') && !endpoint;
+
+        if (isPlaceholder) {
+          window.setTimeout(reveal, 350);
+          return;
+        }
+
+        if (isNetlify) {
+          var params = new URLSearchParams();
+          data.forEach(function (value, key) { params.append(key, value); });
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+          }).then(reveal).catch(fail);
+          return;
+        }
+
+        fetch(endpoint, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(reveal).catch(fail);
+      });
+    })();
+  </script>
+</body>
+</html>
