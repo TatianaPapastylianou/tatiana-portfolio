@@ -951,13 +951,196 @@
       .metrics li:first-child { border-top: 1px solid var(--ink); }
     }
 
+    /* Case marks (SVG) */
+    .case-mark-figure {
+      margin: clamp(1rem, 3vw, 1.75rem) 0 clamp(1.25rem, 3vw, 2rem);
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      background: rgba(20, 18, 16, 0.035);
+      border-top: 1px solid var(--rule-soft);
+      border-bottom: 1px solid var(--rule-soft);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .case-mark {
+      display: block;
+      width: 100%;
+      max-width: 22rem;
+      height: auto;
+      color: var(--ink);
+    }
+
+    /* "read the case" trigger, shown on mobile only */
+    .case-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.95rem 1.4rem;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+      cursor: pointer;
+      border-radius: 0;
+      background-image: none;
+      transition: color 220ms ease, background-color 220ms ease;
+      margin-top: 0.75rem;
+    }
+    .case-open::after {
+      content: "\2197";
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+    .case-open:hover { background: var(--ink); color: var(--paper); }
+    .case-open:hover::after { color: var(--paper); }
+
+    @media (max-width: 47.999rem) {
+      .case-body, .decision { display: none; }
+    }
+    @media (min-width: 48rem) {
+      .case-open { display: none; }
+    }
+
+    /* Case dialog (full-bleed bottom sheet on mobile; centered modal on desktop) */
+    dialog.case-dialog {
+      width: 100%;
+      max-width: 54rem;
+      max-height: 92vh;
+      padding: 0;
+      border: 0;
+      background: var(--paper);
+      color: var(--ink);
+      margin: auto;
+      box-shadow: 0 40px 80px -20px rgba(20, 18, 16, 0.35);
+    }
+    dialog.case-dialog::backdrop {
+      background: rgba(20, 18, 16, 0.6);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+    dialog.case-dialog[open] {
+      display: flex;
+      flex-direction: column;
+    }
+    .case-dialog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.5rem, 4vw, 2.5rem) 1.25rem;
+      padding-top: calc(clamp(1.5rem, 4vw, 2.25rem) + env(safe-area-inset-top, 0px));
+      border-bottom: 1px solid var(--rule);
+    }
+    .case-dialog-head-inner { display: grid; gap: 0.4rem; min-width: 0; }
+    .case-dialog-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0;
+    }
+    .case-dialog-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-variation-settings: "opsz" 144, "SOFT" 40;
+      font-size: clamp(2rem, 6vw, 3rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin: 0;
+      color: var(--ink);
+    }
+    .case-dialog-meta {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0.4rem 0 0;
+      line-height: 1.6;
+    }
+    .case-dialog-close {
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 1;
+      background: transparent;
+      border: 1px solid transparent;
+      padding: 0.25rem 0.65rem;
+      color: var(--ink);
+      cursor: pointer;
+      border-radius: 0;
+      background-image: none;
+      flex: none;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+    .case-dialog-close:hover { color: var(--accent); border-color: var(--rule); }
+    .case-dialog-body {
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      padding-bottom: calc(clamp(1.5rem, 4vw, 2.5rem) + env(safe-area-inset-bottom, 0px));
+      overflow: auto;
+      overscroll-behavior: contain;
+      flex: 1;
+    }
+    .case-dialog-body .case-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      margin-top: 0;
+    }
+    .case-dialog-body .decision {
+      margin-top: 2.25rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule-soft);
+    }
+    html.no-scroll, body.no-scroll { overflow: hidden; }
+
+    @media (max-width: 47.999rem) {
+      dialog.case-dialog {
+        width: 100vw;
+        height: 100dvh;
+        max-height: 100dvh;
+        max-width: 100vw;
+        margin: 0;
+        border-radius: 0;
+      }
+      .case-dialog-head { position: sticky; top: 0; background: var(--paper); z-index: 2; }
+    }
+
+    @media (min-width: 48rem) {
+      .case-dialog-body .case-body { grid-template-columns: 1fr 1fr; }
+      .case-dialog-body .case-body .case-block.outcome { grid-column: 1 / -1; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      dialog.case-dialog[open] { animation: caseDialogIn 320ms cubic-bezier(0.2, 0.75, 0.2, 1); }
+      dialog.case-dialog[open]::backdrop { animation: caseBackdropIn 320ms ease; }
+    }
+    @keyframes caseDialogIn {
+      from { opacity: 0; transform: translateY(1.25rem); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes caseBackdropIn { from { opacity: 0; } to { opacity: 1; } }
+    @media (max-width: 47.999rem) and (prefers-reduced-motion: no-preference) {
+      dialog.case-dialog[open] { animation: caseSheetIn 360ms cubic-bezier(0.2, 0.75, 0.2, 1); }
+    }
+    @keyframes caseSheetIn {
+      from { transform: translateY(100%); }
+      to   { transform: translateY(0); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
     }
 
     @media print {
-      body::before, .apply, .masthead { display: none; }
+      body::before, .apply, .masthead, dialog.case-dialog, .case-open { display: none; }
       body { background: #fff; color: #000; }
+      .case-body, .decision { display: block !important; }
     }
   </style>
 </head>
@@ -1034,6 +1217,34 @@
               </p>
             </header>
 
+            <figure class="case-mark-figure" aria-hidden="true">
+              <svg class="case-mark" viewBox="0 0 240 160" focusable="false">
+                <g fill="currentColor" opacity="0.3">
+                  <rect x="10" y="16" width="6" height="6"/>
+                  <rect x="22" y="16" width="6" height="6"/>
+                  <rect x="34" y="16" width="6" height="6"/>
+                  <rect x="46" y="16" width="6" height="6"/>
+                  <rect x="58" y="16" width="6" height="6"/>
+                  <rect x="70" y="16" width="6" height="6"/>
+                  <rect x="82" y="16" width="6" height="6"/>
+                  <rect x="94" y="16" width="6" height="6"/>
+                </g>
+                <g fill="none" stroke="currentColor" stroke-width="1">
+                  <rect x="10" y="40" width="30" height="14"/>
+                  <rect x="44" y="40" width="30" height="14"/>
+                  <rect x="78" y="40" width="30" height="14"/>
+                </g>
+                <rect x="44" y="40" width="30" height="14" fill="var(--accent)" opacity="0.18"/>
+                <g fill="none" stroke="currentColor" stroke-width="1">
+                  <rect x="10" y="70" width="55" height="22"/>
+                  <rect x="70" y="70" width="55" height="22"/>
+                </g>
+                <rect x="10" y="106" width="220" height="42" fill="none" stroke="currentColor" stroke-width="1"/>
+                <rect x="10" y="138" width="40" height="10" fill="var(--accent)"/>
+              </svg>
+            </figure>
+            <button type="button" class="case-open" data-case-open>read the case</button>
+
             <div class="case-body">
               <div class="case-block problem">
                 <h4>the problem</h4>
@@ -1086,6 +1297,24 @@
               </p>
             </header>
 
+            <figure class="case-mark-figure" aria-hidden="true">
+              <svg class="case-mark" viewBox="0 0 240 160" focusable="false">
+                <line x1="20" y1="128" x2="220" y2="128" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                <circle cx="34" cy="80" r="14" fill="currentColor"/>
+                <circle cx="70" cy="80" r="14" fill="none" stroke="currentColor" stroke-width="1"/>
+                <circle cx="106" cy="80" r="14" fill="none" stroke="currentColor" stroke-width="1"/>
+                <g stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" fill="none">
+                  <rect x="148" y="66" width="26" height="26"/>
+                  <rect x="180" y="66" width="26" height="26"/>
+                  <rect x="212" y="66" width="14" height="26"/>
+                </g>
+                <path d="M 34 80 Q 114 6 188 80" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="34" cy="80" r="3.5" fill="var(--accent)"/>
+                <circle cx="188" cy="80" r="3.5" fill="var(--accent)"/>
+              </svg>
+            </figure>
+            <button type="button" class="case-open" data-case-open>read the case</button>
+
             <div class="case-body">
               <div class="case-block problem">
                 <h4>the problem</h4>
@@ -1137,6 +1366,22 @@
                 <span>8 months</span>
               </p>
             </header>
+
+            <figure class="case-mark-figure" aria-hidden="true">
+              <svg class="case-mark" viewBox="0 0 240 160" focusable="false">
+                <rect x="10" y="54" width="60" height="40" fill="none" stroke="currentColor" stroke-width="1"/>
+                <rect x="90" y="40" width="60" height="68" fill="var(--accent)"/>
+                <rect x="170" y="54" width="60" height="40" fill="none" stroke="currentColor" stroke-width="1"/>
+                <line x1="70" y1="74" x2="90" y2="74" stroke="currentColor" stroke-width="1"/>
+                <polygon points="90,74 86,71 86,77" fill="currentColor"/>
+                <line x1="150" y1="74" x2="170" y2="74" stroke="currentColor" stroke-width="1"/>
+                <polygon points="170,74 166,71 166,77" fill="currentColor"/>
+                <path d="M 90 108 Q 40 148 40 94" fill="none" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 3"/>
+                <polygon points="40,94 37,101 43,101" fill="var(--accent)"/>
+                <line x1="10" y1="136" x2="230" y2="136" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+              </svg>
+            </figure>
+            <button type="button" class="case-open" data-case-open>read the case</button>
 
             <div class="case-body">
               <div class="case-block problem">
@@ -1376,6 +1621,18 @@
     </section>
   </main>
 
+  <dialog class="case-dialog" id="caseDialog" aria-labelledby="caseDialogTitle">
+    <header class="case-dialog-head">
+      <div class="case-dialog-head-inner">
+        <p class="case-dialog-eyebrow">case study</p>
+        <h2 class="case-dialog-title" id="caseDialogTitle"></h2>
+        <p class="case-dialog-meta" id="caseDialogMeta"></p>
+      </div>
+      <button type="button" class="case-dialog-close" id="caseDialogClose" aria-label="close">&times;</button>
+    </header>
+    <div class="case-dialog-body" id="caseDialogBody"></div>
+  </dialog>
+
   <footer aria-label="site footer">
     <div class="wrap foot">
       <div>
@@ -1394,6 +1651,69 @@
   </footer>
 
   <script>
+    (function () {
+      var dialog = document.getElementById('caseDialog');
+      var dTitle = document.getElementById('caseDialogTitle');
+      var dMeta = document.getElementById('caseDialogMeta');
+      var dBody = document.getElementById('caseDialogBody');
+      var dClose = document.getElementById('caseDialogClose');
+      if (!dialog || !dTitle || !dMeta || !dBody || !dClose) return;
+
+      var supportsModal = typeof dialog.showModal === 'function';
+
+      function openCase(caseEl) {
+        var titleEl = caseEl.querySelector('.case-title');
+        var metaEl = caseEl.querySelector('.case-meta');
+        var body = caseEl.querySelector('.case-body');
+        var decision = caseEl.querySelector('.decision');
+        if (!titleEl || !body) return;
+
+        dTitle.textContent = titleEl.textContent.trim();
+        dMeta.textContent = metaEl
+          ? Array.prototype.map.call(metaEl.querySelectorAll('span'), function (s) { return s.textContent.trim(); }).join(' \u2009·\u2009 ')
+          : '';
+
+        dBody.innerHTML = '';
+        dBody.appendChild(body.cloneNode(true));
+        if (decision) dBody.appendChild(decision.cloneNode(true));
+
+        document.documentElement.classList.add('no-scroll');
+        document.body.classList.add('no-scroll');
+
+        if (supportsModal) {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute('open', '');
+        }
+      }
+
+      function closeCase() {
+        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
+        if (dialog.open) dialog.close();
+        else dialog.removeAttribute('open');
+      }
+
+      Array.prototype.forEach.call(
+        document.querySelectorAll('[data-case-open]'),
+        function (btn) {
+          btn.addEventListener('click', function () {
+            var caseEl = btn.closest('.case');
+            if (caseEl) openCase(caseEl);
+          });
+        }
+      );
+
+      dClose.addEventListener('click', closeCase);
+      dialog.addEventListener('close', function () {
+        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
+      });
+      dialog.addEventListener('click', function (event) {
+        if (event.target === dialog) closeCase();
+      });
+    })();
+
     (function () {
       var stage = document.getElementById('applyStage');
       var cta = document.getElementById('applyCta');
