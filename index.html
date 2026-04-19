@@ -844,22 +844,20 @@
         </div>
 
         <!--
-          This form supports two endpoints. Pick one, not both.
+          Form wired for Netlify Forms. Enabled on deploy. Submissions appear
+          in the Netlify dashboard under Forms. No action attribute means the
+          POST goes to the current page, which Netlify intercepts because of
+          data-netlify="true" and the hidden form-name input below.
 
-          Option A. Netlify Forms (recommended once deployed on Netlify):
-            Remove the action attribute entirely. Netlify intercepts the POST
-            because of data-netlify="true" and the hidden form-name input.
-            Enable Forms in Netlify site settings. No code changes needed.
-
-          Option B. Formspree:
-            Replace YOUR_ID_HERE below with the real Formspree form ID.
+          To switch to Formspree instead: add
+            action="https://formspree.io/f/YOUR_ID_HERE"
+          with the real Formspree form ID, and remove data-netlify="true".
         -->
         <form
           class="apply-form"
           id="applyForm"
           name="apply"
           method="POST"
-          action="https://formspree.io/f/YOUR_ID_HERE"
           data-netlify="true"
           netlify-honeypot="bot-field"
           novalidate
