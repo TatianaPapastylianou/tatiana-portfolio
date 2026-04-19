@@ -457,10 +457,12 @@
     .case-block p {
       font-family: var(--serif);
       font-variation-settings: "opsz" 14, "SOFT" 20;
-      font-size: 1.0625rem;
-      line-height: 1.62;
-      max-width: 56ch;
+      font-size: clamp(1.1rem, 1.15vw + 0.95rem, 1.3rem);
+      line-height: 1.6;
+      max-width: 58ch;
+      color: var(--ink-soft);
     }
+    .case-block h4 + p { margin-top: 0; }
 
     .metrics { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.75rem; }
     .metrics li {
@@ -969,13 +971,13 @@
       .hero-sigil { grid-column: 2; grid-row: 1; text-align: right; align-self: start; margin-top: 0; font-size: 5.25rem; }
       .hero-main { grid-column: 1 / -1; grid-row: 2; }
       .case { grid-template-columns: 14rem 1fr; }
-      .case-body { grid-template-columns: 1fr 1fr 1fr; }
-      .case-body .case-block.outcome { grid-column: 3; }
+      /* Two columns for legibility — problem + approach side by side, outcome full width below. */
+      .case-body { grid-template-columns: 1fr 1fr; }
       .case-body .case-block.problem { grid-column: 1; }
       .case-body .case-block.approach { grid-column: 2; }
-      .metrics { grid-template-columns: 1fr; }
-      .metrics li { border-top: 1px solid var(--rule-soft); }
-      .metrics li:first-child { border-top: 1px solid var(--ink); }
+      .case-body .case-block.outcome { grid-column: 1 / -1; }
+      .metrics { grid-template-columns: repeat(3, 1fr); }
+      .metrics li { border-top: 1px solid var(--ink); padding-top: 1.1rem; }
     }
 
     /* Case marks — framed as a mockup window (traffic lights + chrome + canvas) */
